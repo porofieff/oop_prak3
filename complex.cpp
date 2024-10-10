@@ -3,15 +3,15 @@
 
 complex::complex() {}
 
-int arg(int re, int im)
+double arg(double re, double im)
 {
     return atan(im/re);
 }
 
-complex::complex(int r, int i)
+complex::complex(double r, double i)
 {
     re = r;
-    im = i;
+    im = 0;
 }
 
 ostream& operator<<(ostream& os, complex c)
@@ -85,8 +85,8 @@ complex complex::operator/(int c)
 bool complex::operator<(complex c)
 {
     bool res = false;
-    int m1;
-    int m2;
+    double m1;
+    double m2;
     m1 = sqrt(re * re + im * im);
     m2 = sqrt(c.re * c.re + c.im * c.im);
     if (m1 < m2)
@@ -106,8 +106,8 @@ bool complex::operator<(complex c)
 bool complex::operator>(complex c)
 {
     bool res = false;
-    int m1;
-    int m2;
+    double m1;
+    double m2;
     m1 = sqrt(re * re + im * im);
     m2 = sqrt(c.re * c.re + c.im * c.im);
     if (m1 > m2)

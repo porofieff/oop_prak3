@@ -10,7 +10,7 @@ class complex
     double re, im;
 public:
     complex();
-    complex(int, int);
+    complex(double, double);
 
     complex operator*(complex);
     complex operator+(complex);

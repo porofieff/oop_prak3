@@ -7,7 +7,7 @@
 enum PrintMode
 {
     PrintModeClassic,
-    PrintModeCanonic
+    PrintModeCanonic,
 };
 
 class Polinome
