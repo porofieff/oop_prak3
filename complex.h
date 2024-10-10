@@ -10,11 +10,13 @@ class complex
     double re, im;
 public:
     complex();
-    complex(double, double);
+    complex(int, int);
 
     complex operator*(complex);
     complex operator+(complex);
     complex operator-(complex);
+    complex operator-();
+    complex operator=(int);
     complex operator/(int);
 
    // complex operator-(complex);

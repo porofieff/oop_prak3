@@ -61,6 +61,12 @@ void Array::change_size(int new_size)
     size = new_size;
 }
 
+
+number& Array::operator[](int i)
+{
+    return arr[i];
+}
+
 number Array::calculate_arefmetic_avarage()
 {
     number avg;

@@ -3,12 +3,12 @@
 
 complex::complex() {}
 
-double arg(double re, double im)
+int arg(int re, int im)
 {
     return atan(im/re);
 }
 
-complex::complex(double r, double i)
+complex::complex(int r, int i)
 {
     re = r;
     im = i;
@@ -48,6 +48,24 @@ complex complex::operator-(complex c)
     t.re = re - c.re;
     t.im = im - c.im;
     return t;
+}
+
+complex complex::operator=(int a)
+{
+    complex t;
+    t.re = a;
+    t.im = 0;
+    return t;
+}
+
+complex complex::operator- ()
+{
+    complex temp;
+    temp.re = -re;
+    if (temp.re == -0) temp.re = 0;
+    temp.im = -im;
+    if (temp.im == -0) temp.im = 0;
+    return temp;
 }
 
 complex complex::operator/(int c)

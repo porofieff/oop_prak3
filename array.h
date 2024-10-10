@@ -25,6 +25,7 @@ public:
 
     number calculate_arefmetic_avarage();
     number calculate_square();
+    number& operator[](int);
 
     void qsort(bool);
 
