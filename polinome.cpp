@@ -7,7 +7,7 @@ Polinome::Polinome()
     mode = PrintModeClassic;
 }
 
-Polinome::Polinome(number new_an, number* new_roots, int new_size)
+Polinome::Polinome(number new_an, Array new_roots, int new_size)
 {
     N = new_size;
     roots.change_size(N);

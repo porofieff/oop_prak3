@@ -20,7 +20,7 @@ private:
     void count_coefficents(number);
 public:
     Polinome();
-    Polinome(number, number*, int);
+    Polinome(number, Array, int);
 
     friend ostream& operator<< (ostream&, Polinome&);
     friend istream& operator>> (istream&, Polinome&);

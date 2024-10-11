@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = Prak11.0.0
-DISTDIR = /home/porofieff/Documents/Leti/OOP/Practise/oop_prak2/.tmp/Prak11.0.0
+DISTDIR = /home/porofieff/Documents/Leti/OOP/Practise/oop_prak3/.tmp/Prak11.0.0
 LINK          = g++
 LFLAGS        = -fPIC
 LIBS          = $(SUBLIBS) /usr/lib/libQt5Core.so -lpthread   
@@ -55,11 +55,13 @@ OBJECTS_DIR   = ./
 SOURCES       = application.cpp \
 		array.cpp \
 		complex.cpp \
-		main.cpp 
+		main.cpp \
+		polinome.cpp 
 OBJECTS       = application.o \
 		array.o \
 		complex.o \
-		main.o
+		main.o \
+		polinome.o
 DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/common/unix.conf \
 		/usr/lib/qt/mkspecs/common/linux.conf \
@@ -134,7 +136,6 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/features/qt_config.prf \
 		/usr/lib/qt/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/qt/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/usr/lib/qt/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/qt/mkspecs/features/toolchain.prf \
 		/usr/lib/qt/mkspecs/features/default_pre.prf \
@@ -159,10 +160,12 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		Prak1.pro application.h \
 		array.h \
 		complex.h \
-		number.h application.cpp \
+		number.h \
+		polinome.h application.cpp \
 		array.cpp \
 		complex.cpp \
-		main.cpp
+		main.cpp \
+		polinome.cpp
 QMAKE_TARGET  = Prak1
 DESTDIR       = 
 TARGET        = Prak1
@@ -248,7 +251,6 @@ Makefile: Prak1.pro /usr/lib/qt/mkspecs/linux-g++/qmake.conf /usr/lib/qt/mkspecs
 		/usr/lib/qt/mkspecs/features/qt_config.prf \
 		/usr/lib/qt/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/qt/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/usr/lib/qt/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/qt/mkspecs/features/toolchain.prf \
 		/usr/lib/qt/mkspecs/features/default_pre.prf \
@@ -346,7 +348,6 @@ Makefile: Prak1.pro /usr/lib/qt/mkspecs/linux-g++/qmake.conf /usr/lib/qt/mkspecs
 /usr/lib/qt/mkspecs/features/qt_config.prf:
 /usr/lib/qt/mkspecs/linux-g++/qmake.conf:
 /usr/lib/qt/mkspecs/features/spec_post.prf:
-.qmake.stash:
 /usr/lib/qt/mkspecs/features/exclusive_builds.prf:
 /usr/lib/qt/mkspecs/features/toolchain.prf:
 /usr/lib/qt/mkspecs/features/default_pre.prf:
@@ -384,8 +385,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents application.h array.h complex.h number.h $(DISTDIR)/
-	$(COPY_FILE) --parents application.cpp array.cpp complex.cpp main.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents application.h array.h complex.h number.h polinome.h $(DISTDIR)/
+	$(COPY_FILE) --parents application.cpp array.cpp complex.cpp main.cpp polinome.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -436,7 +437,8 @@ compiler_clean: compiler_moc_predefs_clean
 application.o: application.cpp application.h \
 		array.h \
 		number.h \
-		complex.h
+		complex.h \
+		polinome.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o application.o application.cpp
 
 array.o: array.cpp array.h \
@@ -449,6 +451,12 @@ complex.o: complex.cpp complex.h
 
 main.o: main.cpp application.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
+
+polinome.o: polinome.cpp polinome.h \
+		number.h \
+		complex.h \
+		array.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o polinome.o polinome.cpp
 
 ####### Install
 
