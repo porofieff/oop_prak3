@@ -19,7 +19,8 @@ public:
     complex operator=(int);
     complex operator/(int);
 
-   // complex operator-(complex);
+
+   //complex operator-(complex);
     bool operator<(complex);
     bool operator>(complex);
     friend complex sqrt (complex);

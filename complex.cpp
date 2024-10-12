@@ -11,7 +11,7 @@ double arg(double re, double im)
 complex::complex(double r, double i)
 {
     re = r;
-    im = 0;
+    im = i;
 }
 
 ostream& operator<<(ostream& os, complex c)
@@ -50,6 +50,14 @@ complex complex::operator-(complex c)
     return t;
 }
 
+complex complex::operator/(int c)
+{
+    complex t;
+    t.re = re / c;
+    t.im = im / c;
+    return t;
+}
+
 complex complex::operator=(int a)
 {
     complex t;
@@ -68,13 +76,6 @@ complex complex::operator- ()
     return temp;
 }
 
-complex complex::operator/(int c)
-{
-    complex t;
-    t.re = re / c;
-    t.im = im / c;
-    return t;
-}
 /*complex complex:: operator-(complex)
 {
     complex t;
@@ -85,8 +86,8 @@ complex complex::operator/(int c)
 bool complex::operator<(complex c)
 {
     bool res = false;
-    double m1;
-    double m2;
+    int m1;
+    int m2;
     m1 = sqrt(re * re + im * im);
     m2 = sqrt(c.re * c.re + c.im * c.im);
     if (m1 < m2)
@@ -106,8 +107,8 @@ bool complex::operator<(complex c)
 bool complex::operator>(complex c)
 {
     bool res = false;
-    double m1;
-    double m2;
+    int m1;
+    int m2;
     m1 = sqrt(re * re + im * im);
     m2 = sqrt(c.re * c.re + c.im * c.im);
     if (m1 > m2)
@@ -117,9 +118,9 @@ bool complex::operator>(complex c)
     else if (m1 == m2)
     {
         if (arg(re, im) > arg(c.re, c.im))
-            {
-                res = true;
-            }
+        {
+            res = true;
+        }
     }
     return res;
 }

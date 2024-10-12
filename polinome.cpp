@@ -7,7 +7,7 @@ Polinome::Polinome()
     mode = PrintModeClassic;
 }
 
-Polinome::Polinome(number new_an, Array new_roots, int new_size)
+Polinome::Polinome(number new_an, number new_roots[], int new_size)
 {
     N = new_size;
     roots.change_size(N);
@@ -26,7 +26,7 @@ void Polinome::count_coefficents(number new_an)
 {
     for (int i = 0; i < N; i++)
     {
-        coefficents[i] = 1;
+       coefficents[i] = 0;
     }
 
     coefficents[N] = new_an;
