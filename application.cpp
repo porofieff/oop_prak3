@@ -14,25 +14,10 @@ int Application::exec()
 {
     int ch;
     Array arr;
-    //Array n_roots;
 
-    number a0;
-    a0 = 3;
-    number a1;
-    a1 = 7;
-    number a2;
-    a2 = 1;
-    number a3;
-    a3 = 3;
-
-    number n_roots[] = {a0, a1, a2};
-
-    //n_roots.change_size(3);
-    //n_roots.change_element(0, a0);
-    //n_roots.change_element(1, a1);
-    //n_roots.change_element(2, a2);
-
-    Polinome polin(a3, n_roots, 3);
+    number an(3, 0);
+    number n_roots[] = {number(3, 0), number(7, 0), number(1, 0)};
+    Polinome polin(an, n_roots, 3);
 
     while(true)
     {
