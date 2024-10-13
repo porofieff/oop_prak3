@@ -95,7 +95,9 @@ void Polinome::change_roots(number new_root, int new_index)
 
 void Polinome::change_size(int new_size)
 {
+    number an = coefficents[N];
     roots.change_size(new_size);
     coefficents.change_size(new_size + 1);
     N = new_size;
+    change_an(an);
 }

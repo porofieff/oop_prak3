@@ -34,7 +34,7 @@ int Application::exec()
             }
             case 2:
             {
-                cout << "Input index" << endl;
+                cout << "Enter the value for which you want to calculate the polynomial" << endl;
                 number elem;
                 cin >> elem;
                 cout << polin.count_val(elem) << endl;
@@ -113,9 +113,9 @@ int Application::menu()
 
     cout << "1 - Enter value" << endl;
     cout << "2 - Calculating the value of a polynomial at a given point" << endl;
-    cout << "3 - Change array lenth" << endl;
+    cout << "3 - Change polinom lenth" << endl;
     cout << "4 - Changing the coefficient of an or one of the roots selected by the index" << endl;
-    cout << "5 - Print array" << endl;
+    cout << "5 - Print polinom" << endl;
     cout << "0 - Exit" << endl;
 
     cin >> ch;
